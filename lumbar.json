@@ -5,6 +5,18 @@
     "config/base.json"
   ],
   "modules": {
+    "todos": {
+      "routes": {
+        "": "index"
+      },
+      "scripts": [
+        "js/routers/todos.js",
+        "js/views/todos/index.js"
+      ],
+      "styles": [
+        "stylesheets/todos.css"
+      ]
+    }
   },
   "templates": {
     "js/init.js": [
