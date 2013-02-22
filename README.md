@@ -1,8 +1,4 @@
-Thorax Seed
+Thorax Seed Todos
 ===========
 
-Setup:
-
-- download or clone
-- run `npm install`
-- run `npm start`
+A [Thorax Seed](http://github.com/walmartlabs/thorax-seed) containing the simple todos example shown in the screencast.
