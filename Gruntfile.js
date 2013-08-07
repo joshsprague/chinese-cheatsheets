@@ -7,16 +7,6 @@ module.exports = function(grunt) {
   grunt.file.mkdir(publicDir);
 
   grunt.initConfig({
-    //create a static webserver
-    // connect: {
-    //   server: {
-    //     options: {
-    //       hostname: hostname,
-    //       base: publicDir,
-    //       port: port
-    //     }
-    //   }
-    // },
 
     lumbar: {
       // performs an initial build so when tests
@@ -69,7 +59,7 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('thorax-inspector');
   grunt.loadNpmTasks('lumbar');
-  grunt.loadNpmTasks('grunt-contrib-connect');
+  //grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', [
     'thorax:inspector',
