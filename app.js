@@ -35,7 +35,7 @@ module.exports = function(){
 
   cheatsheets.app.listen(cheatsheets.app.get("port"));
   //start server
-  cheatsheets.router(cheatsheets);
+  //cheatsheets.router(cheatsheets);
 
   return cheatsheets;
 }

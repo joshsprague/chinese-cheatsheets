@@ -1,1 +1,7 @@
 /* This stylesheet will be available on all modules */
+
+body {
+  margin-left: 15px;
+  padding-left: 15px;
+  font-family: 'Open Sans', sans-serif;
+}

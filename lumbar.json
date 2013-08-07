@@ -5,16 +5,16 @@
     "config/base.json"
   ],
   "modules": {
-    "todos": {
+    "wordList": {
       "routes": {
         "": "index"
       },
       "scripts": [
-        "js/routers/todos.js",
-        "js/views/todos/index.js"
+        "js/routers/wordList.js",
+        "js/views/wordList/index.js"
       ],
       "styles": [
-        "stylesheets/todos.css"
+        "stylesheets/wordList.css"
       ]
     }
   },
