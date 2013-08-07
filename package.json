@@ -1,5 +1,5 @@
 {
-  "name": "Application",
+  "name": "cheatsheets",
   "version": "0.0.1",
   "devDependencies": {
     "handlebars": "~1.0.0",
@@ -9,15 +9,20 @@
     "grunt-contrib-jshint": "0.1.1rc6",
     "grunt": "~0.4",
     "grunt-cli": "0.1.6",
+    "grunt-express": "1.0",
     "lumbar": "~2.0.0",
     "thorax-inspector": "0.2.4",
-    "open": "0.0.3"
+    "open": "0.0.3",
+    "mysql": "~2.0.0-alpha8",
+    "express": "~3.3.4",
+    "underscore": "~1.5.1",
+    "connect": "~2.8.4"
   },
   "scripts": {
     "start": "./node_modules/grunt-cli/bin/grunt",
     "test": "./node_modules/grunt-cli/bin/grunt test"
   },
   "engines": {
-    "node" : ">=0.8.0"
+    "node": ">=0.8.0"
   }
 }

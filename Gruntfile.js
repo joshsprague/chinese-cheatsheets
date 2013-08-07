@@ -7,16 +7,17 @@ module.exports = function(grunt) {
   grunt.file.mkdir(publicDir);
 
   grunt.initConfig({
-    // create a static webserver
-    connect: {
-      server: {
-        options: {
-          hostname: hostname,
-          base: publicDir,
-          port: port
-        }
-      }
-    },
+    //create a static webserver
+    // connect: {
+    //   server: {
+    //     options: {
+    //       hostname: hostname,
+    //       base: publicDir,
+    //       port: port
+    //     }
+    //   }
+    // },
+
     lumbar: {
       // performs an initial build so when tests
       // and initial open are run, code is built
@@ -56,6 +57,10 @@ module.exports = function(grunt) {
     }
   });
   
+  grunt.registerTask("init-api", function () {
+      var cheatsheets = require("./app.js")();
+    });
+
   grunt.registerTask('open-browser', function() {
     var open = require('open');
     open('http://' + hostname + ':' + port);
@@ -69,7 +74,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'thorax:inspector',
     'lumbar:init',
-    'connect:server',
+    'init-api',
     'open-browser',
     'lumbar:watch'
   ]);
