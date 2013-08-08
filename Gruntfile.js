@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     }
   });
   
-  grunt.registerTask("init-api", function () {
+  grunt.registerTask("init-express", function () {
       var cheatsheets = require("./app.js")();
     });
 
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'thorax:inspector',
     'lumbar:init',
-    'init-api',
+    'init-express',
     'open-browser',
     'lumbar:watch'
   ]);

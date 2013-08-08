@@ -1,15 +1,14 @@
-var fs = require('fs');
-
-module.exports = function(app){
-  fs.readdirSync(__dirname).forEach(function(file){
-    if (file === 'routes_index.js' ||
-        file.substr(file.lastIndexOf('.') + 1) !== 'js'){
-      //check for routes_index.js
-      //also make sure only include files ending with .js
-      return;
-    } else {
-      var name = file.substr(0, file.indexOf('.'));
-      require('./' + name)(app);
-    }
+module.exports = function(cheatsheets){
+  
+  cheatsheets.app.get("/pairs", function(req, res) {
+    var body = 'Hello World';
+    
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', body.length);
+    res.end(body);
   });
+
+  cheatsheets.app.use(function(req, res, next){
+  res.send(404, 'Sorry cant find that!');
+});
 };

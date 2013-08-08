@@ -10,6 +10,18 @@ module.exports = function(){
 
     return this;
   })();
+  var mysql = require('mysql');
+
+  var dbConnection = mysql.createConnection({
+    user: "root",
+    //password: "mysql123",
+    database: "cheatsheets",
+  });
+
+  var db = function(query, cb) {
+    console.log("Database queried.");
+    dbConnection.query(query, cb);
+  };
 
   //set up express
   cheatsheets.app.configure(function () {
@@ -24,14 +36,37 @@ module.exports = function(){
         next();
       }
     });
-
+    
     this.use(cheatsheets.express.static(__dirname+'/public'));
     this.set('view engine', 'html');
     this.use(cheatsheets.express.bodyParser());
     this.set('port', process.env.PORT || 8000);
-    this.use(this.router);
+    //this.use(this.router);
     this.use(cheatsheets.express.methodOverride());
+
   });
+
+  cheatsheets.app.post("/pairList", function(req, res) {
+    
+    // res.setHeader('Content-Type', 'text/plain');
+    // res.setHeader('Content-Length', body.length);
+    dbConnection.connect()
+      
+    dbConnection.query("INSERT into pairs (search_word, translation) values ('test', 'test');", function(err, rows, fields){
+      if (err) throw err;
+      console.log("Saved");
+      });
+    
+    dbConnection.end();
+
+    res.end();
+  });
+
+  cheatsheets.app.get("/test", function(req, res){
+    res.end("it worked!");
+  });
+
+  
 
   cheatsheets.app.listen(cheatsheets.app.get("port"));
   //start server
