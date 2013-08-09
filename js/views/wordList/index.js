@@ -28,8 +28,8 @@ Application.View.extend({
           }
           
           self.collection.add({title: newPair.search_word, translation: newPair.translation});
-          console.log(newPair.url);
-          newPair.save();
+          
+          newPair.save({search_word: newPair.search_word, translation: newPair.translation});
         }
     });
       

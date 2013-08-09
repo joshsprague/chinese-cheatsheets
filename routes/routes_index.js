@@ -12,3 +12,5 @@ module.exports = function(cheatsheets){
   res.send(404, 'Sorry cant find that!');
 });
 };
+
+//http://stackoverflow.com/questions/6059246/how-to-include-route-handlers-in-multiple-files-in-express

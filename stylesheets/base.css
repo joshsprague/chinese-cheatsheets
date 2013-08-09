@@ -1,7 +1,15 @@
 /* This stylesheet will be available on all modules */
 
 body {
-  margin-left: 15px;
-  padding-left: 15px;
+  margin-left: 25px;
+  padding-left: 25px;
   font-family: 'Open Sans', sans-serif;
+  background-color: #37324A;
 }
+
+.list {
+  padding: 10px;
+  background-color: #F8DB9A;
+  border: 2px #F3A358;
+}
+

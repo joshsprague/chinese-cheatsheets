@@ -41,36 +41,32 @@ module.exports = function(){
     this.set('view engine', 'html');
     this.use(cheatsheets.express.bodyParser());
     this.set('port', process.env.PORT || 8000);
-    //this.use(this.router);
     this.use(cheatsheets.express.methodOverride());
 
   });
 
+  //Route saved pairs to database
   cheatsheets.app.post("/pairList", function(req, res) {
     
-    // res.setHeader('Content-Type', 'text/plain');
-    // res.setHeader('Content-Length', body.length);
-    dbConnection.connect()
-      
-    dbConnection.query("INSERT into pairs (search_word, translation) values ('test', 'test');", function(err, rows, fields){
+    dbConnection.query("INSERT into pairs (search_word, translation) values ('" + req.body['search_word'] + "', '" + req.body['translation'] + "');", function(err, rows, fields){
       if (err) throw err;
-      console.log("Saved");
+      console.log("Pair saved to database");
       });
     
-    dbConnection.end();
-
     res.end();
   });
 
+  //Return 404 if route not found
+  cheatsheets.app.use(function(req, res, next){
+    res.send(404, 'Sorry cant find that!');
+  });
+  
   cheatsheets.app.get("/test", function(req, res){
     res.end("it worked!");
   });
 
-  
-
+  //set up listening
   cheatsheets.app.listen(cheatsheets.app.get("port"));
-  //start server
-  //cheatsheets.router(cheatsheets);
 
   return cheatsheets;
 }
