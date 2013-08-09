@@ -1,4 +1,4 @@
-Thorax Seed Todos
+Chinese Cheatsheets
 ===========
 
-A [Thorax Seed](http://github.com/walmartlabs/thorax-seed) containing the simple todos example shown in the screencast.
+Built on a [Thorax Seed](http://github.com/walmartlabs/thorax-seed).
