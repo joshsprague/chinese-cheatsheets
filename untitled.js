@@ -214,3 +214,27 @@ var cheatsheets = (function () {
     "node": ">=0.8.0"
   }
 }
+
+//http://stackoverflow.com/questions/6059246/how-to-include-route-handlers-in-multiple-files-in-express
+var fs = require('fs');
+
+module.exports = function(app){
+  fs.readdirSync(__dirname).forEach(function(file){
+    if (file === 'routes_index.js' ||
+        file.substr(file.lastIndexOf('.') + 1) !== 'js'){
+      //check for routes_index.js
+      //also make sure only include files ending with .js
+      return;
+    } else {
+      var name = file.substr(0, file.indexOf('.'));
+      require('./' + name)(app);
+    }
+  });
+};
+
+SELECT * FROM X WHERE id=#{id}
+UNION ALL
+SELECT * FROM tags
+WHERE id IN
+(SELECT id FROM xtags
+ WHERE meal_id = #{id})
