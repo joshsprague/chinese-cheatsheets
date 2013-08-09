@@ -39,6 +39,12 @@ Application.View.extend({
     'change input[type="checkbox"]': function(event) {
       var model = $(event.target).model();
       model.set({done: event.target.checked});
+    },
+
+    'click button[name="save"]': function(event) {
+      self.collection.each(function(model) {
+        //model.save({idword})
+      });
     }
   },
 
