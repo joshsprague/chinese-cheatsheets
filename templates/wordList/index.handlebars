@@ -1,19 +1,21 @@
 <div class="list">
-<h1>Chinese Cheatsheets</h1>
-<h3>Enter English words to build a new list</h3>
-<p>
-  {{#collection tag="ul"}}
-    <li>
-      {{title}}<span>--</span>{{translation}}
-    </li>
-  {{/collection}}
-  <form>
-    <input name="title">
-    <input type="submit" value="Add">
-  </form>
-  <button name="save" class="save">Save list</button>
-</p>
+  <h1>Chinese Cheatsheets</h1>
+  <h3>Enter English words to build a new list</h3>
+  <p>
+    {{#collection tag="ul"}}
+      <li>
+        <span class="keyword">{{title}}</span>{{translation}}
+      </li>
+    {{/collection}}
+    <form>
+      <input name="title">
+      <input type="submit" value="Add">
+    </form>
+    <button name="save" class="save">Save list</button>
+  </p>
 </div>
+
 <footer>
-API by <a href="http://developer.pearson.com/">Pearson</a> | Background image by <a href="http://www.flickr.com/photos/shizhao/4468692973/">Shizhou</a>.
+  API by <a href="http://developer.pearson.com/">Pearson</a> | Background image by <a href="http://www.flickr.com/photos/shizhao/4468692973/">Shizhou</a>.</br>
+  Creative Commons -- Attribution-ShareAlike
 </footer>

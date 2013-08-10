@@ -42,9 +42,7 @@ Application.View.extend({
     },
 
     'click button[name="save"]': function(event) {
-      self.collection.each(function(model) {
-        //model.save({idword})
-      });
+      //this.collection.save();
     }
   },
 
