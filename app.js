@@ -18,24 +18,22 @@ module.exports = function(){
     database: "cheatsheets",
   });
 
-  var db = function(query, cb) {
-    console.log("Database queried.");
-    dbConnection.query(query, cb);
+  //set up options handler
+  var optionsHandler = function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Origin', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Origin', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    if ('OPTIONS' === req.method) {
+      res.send(200);
+    } else {
+      next();
+    }
   };
 
   //set up express
   cheatsheets.app.configure(function () {
-    this.use(function (req, res, next) {
-      res.header('Access-Control-Allow-Origin', req.headers.origin);
-      res.header('Access-Control-Allow-Origin', 'GET,PUT,POST,DELETE,OPTIONS');
-      res.header('Access-Control-Allow-Origin', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
-      if ('OPTIONS' === req.method) {
-        res.send(200);
-      } else {
-        next();
-      }
-    });
+    this.use(optionsHandler);
     
     this.use(cheatsheets.express.static(__dirname+'/public'));
     this.set('view engine', 'html');
@@ -51,7 +49,7 @@ module.exports = function(){
     dbConnection.query("INSERT into pairs (search_word, translation) values ('" + req.body['search_word'] + "', '" + req.body['translation'] + "');", function(err, rows, fields){
       if (err) throw err;
       console.log("Pair saved to database");
-      });
+    });
     
     res.end();
   });
@@ -59,10 +57,6 @@ module.exports = function(){
   //Return 404 if route not found
   cheatsheets.app.use(function(req, res, next){
     res.send(404, 'Sorry cant find that!');
-  });
-  
-  cheatsheets.app.get("/test", function(req, res){
-    res.end("it worked!");
   });
 
   //set up listening
