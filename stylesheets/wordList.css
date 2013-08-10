@@ -11,17 +11,11 @@
 .list {
   height: 600px;
   max-width: 480px;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: 10px 20px;
   margin: 10px;
   background-color: #F6FDE3;
   border: 5px solid #BAE032;
   border-radius: 4px;
-}
-
-p {
-  
 }
 
 ul {
@@ -40,6 +34,7 @@ li {
 .keyword {
   margin-right: 10px;
 }
+
 footer {
   margin: 10px;
   color: #666;

@@ -41,8 +41,8 @@ Application.View.extend({
       model.set({done: event.target.checked});
     },
 
-    'click button[name="save"]': function(event) {
-      //this.collection.save();
+    'click button[name="Email to myself"]': function(event) {
+    
     }
   },
 
