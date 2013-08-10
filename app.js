@@ -4,7 +4,6 @@ module.exports = function(){
     this.app = this.express();
     this.http = require('http');
     this._ = require ('underscore');
-    this.router = require("./routes/routes_index.js");
     this.connect = require('connect');
     this.mysql = require('mysql');
 
