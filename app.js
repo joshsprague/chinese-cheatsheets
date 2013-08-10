@@ -19,10 +19,6 @@ module.exports = function(){
 
   //set up options handler
   var optionsHandler = function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', req.headers.origin);
-    res.header('Access-Control-Allow-Origin', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Origin', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
     if ('OPTIONS' === req.method) {
       res.send(200);
     } else {
