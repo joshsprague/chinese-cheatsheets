@@ -5,23 +5,41 @@
   font-family: 'Open Sans', sans-serif;
   background-size: 100%;
   background-image: url(./img/shizhou.jpg);
+  background-image: no-repeat;
 }
 
 .list {
-  height: 500px;
+  height: 600px;
   max-width: 480px;
   padding-top: 10px;
   padding-left: 20px;
+  padding-right: 20px;
   margin: 10px;
   background-color: #F6FDE3;
   border: 5px solid #BAE032;
-  border-radius: 2px;
+  border-radius: 4px;
+}
+
+p {
+  
+}
+
+ul {
+  list-style: none;
+  list-style-position: none;
+  margin-left:1.5em; 
+  padding-left:0px;
 }
 
 li {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  margin-bottom:0.5em; 
+  margin-left: -10px;
 }
 
+.keyword {
+  margin-right: 10px;
+}
 footer {
   margin: 10px;
   color: #666;
@@ -30,3 +48,7 @@ footer {
 a {
   color: #BAE032;
 }
+h1 {
+  border-bottom: 1px solid #BAE032;
+}
+
