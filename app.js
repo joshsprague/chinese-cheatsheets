@@ -6,9 +6,11 @@ module.exports = function(){
     this._ = require ('underscore');
     this.connect = require('connect');
     this.mysql = require('mysql');
-
+    this.nodemailer = require('nodemailer');
     return this;
   })();
+
+  //set up database and db connection
   var mysql = require('mysql');
 
   var dbConnection = mysql.createConnection({
@@ -38,6 +40,15 @@ module.exports = function(){
 
   });
 
+  //set up nodemailer
+  var smtpTransport = nodemailer.createTransport("SMTP", {
+    service: "Gmail",
+    auth: {
+      user: "chinesecheatsheets@gmail.com",
+      pass: "chinese123"
+    }
+  });
+
   //Route saved pairs to database
   cheatsheets.app.post("/pairList", function(req, res) {
     
@@ -49,10 +60,30 @@ module.exports = function(){
     res.end();
   });
 
+  //Route email request
+  cheatsheets.app.get("/email", function(req, res) {
+    smtpTransport.sendMail({
+      from: "Cheatsheets <chinesecheatsheets@gmail.com>", 
+      to: "User <joshjsprague@gmail.com",
+      subject: "Your cheatsheet",
+      text: "Words from your cheatsheet",
+    }, function(error, response) {
+      if(error) {
+        console.log(error);
+      } else {
+        console.log("Message sent");
+      }
+    });
+
+    res.end();
+  });
+
   //Return 404 if route not found
   cheatsheets.app.use(function(req, res, next){
     res.send(404, 'Sorry cant find that!');
   });
+
+
 
   //set up listening
   cheatsheets.app.listen(cheatsheets.app.get("port"));
