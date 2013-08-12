@@ -38,20 +38,21 @@ Application.View.extend({
       this.$('input[name="title"]').val('');
     },
 
-    'change input[type="checkbox"]': function(event) {
-      var model = $(event.target).model();
-      model.set({done: event.target.checked});
-    },
-
     'submit #email': function(event) {
       event.preventDefault();
       var attrs = this.serialize();
       var email = new Application.Models["wordList/email"];
+      var emailBody = "";
 
-      email.save({address: attrs.address});
+      this.collection.each(function(model) {
+        console.log(model.attributes.title);
+        emailBody = emailBody.concat("<tr><td>" + model.attributes.title + "</td><td>" + model.attributes.translation + "</td></tr>");
+      });
 
+      console.log(emailBody);
 
-    
+      email.save({address: attrs.address, emailBody: emailBody});
+      this.$('input[name="address"]').val('Sent');
     }
   },
 

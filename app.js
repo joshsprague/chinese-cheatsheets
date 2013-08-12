@@ -67,7 +67,7 @@ module.exports = function(){
       from: "Cheatsheets <chinesecheatsheets@gmail.com>", 
       to: "User <" + req.body['address'] + ">",
       subject: "Your cheatsheet",
-      text: "Words from your cheatsheet",
+      html: "Your cheatsheet: </br>" + req.body['emailBody'] + " ",
     }, function(error, response) {
       if(error) {
         console.log(error);
