@@ -61,10 +61,11 @@ module.exports = function(){
   });
 
   //Route email request
-  cheatsheets.app.get("/email", function(req, res) {
+  cheatsheets.app.post("/email", function(req, res) {
+
     smtpTransport.sendMail({
       from: "Cheatsheets <chinesecheatsheets@gmail.com>", 
-      to: "User <joshjsprague@gmail.com",
+      to: "User <" + req.body['address'] + ">",
       subject: "Your cheatsheet",
       text: "Words from your cheatsheet",
     }, function(error, response) {
@@ -82,8 +83,6 @@ module.exports = function(){
   cheatsheets.app.use(function(req, res, next){
     res.send(404, 'Sorry cant find that!');
   });
-
-
 
   //set up listening
   cheatsheets.app.listen(cheatsheets.app.get("port"));

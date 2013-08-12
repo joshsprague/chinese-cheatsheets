@@ -13,7 +13,9 @@
         "js/routers/wordList.js",
         "js/views/wordList/index.js",
         "js/models/wordList/pair.js",
-        "js/collections/wordList/pairs.js"
+        "js/collections/wordList/pairs.js",
+        "js/views/wordList/email.js",
+        "js/models/wordList/email.js"
       ],
       "styles": [
         "stylesheets/wordList.css"

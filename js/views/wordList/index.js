@@ -3,8 +3,10 @@
 Application.View.extend({
   name: "wordList/index",
 
+  //template: Handlebars.compile('{{view email}}'),
+
   events: {
-    "submit form": function(event) {
+    "submit #translated": function(event) {
       event.preventDefault();
       var attrs = this.serialize();
       var holder;
@@ -41,7 +43,14 @@ Application.View.extend({
       model.set({done: event.target.checked});
     },
 
-    'click button[name="Email to myself"]': function(event) {
+    'submit #email': function(event) {
+      event.preventDefault();
+      var attrs = this.serialize();
+      var email = new Application.Models["wordList/email"];
+
+      email.save({address: attrs.address});
+
+
     
     }
   },
