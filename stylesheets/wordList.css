@@ -1,25 +1,35 @@
+ html {
+ }
+
  body {
-  margin-left: 25px;
-  margin-top: 25px;
-  padding-left: 25px;
+  margin-left: 0;
+  margin-top: 0;
   font-family: 'Open Sans', sans-serif;
   background-size: 100%;
-  background-image: url(./img/shizhou.jpg);
-  background-image: no-repeat;
+  background-color: #b3d4fc;
 }
 
 .list {
-  height: 600px;
+  height: 100%;
   max-width: 480px;
-  padding-top: 10px 20px;
-  margin: 10px;
-  background-color: #F6FDE3;
-  border: 5px solid #BAE032;
-  border-radius: 4px;
+  padding: 10px 20px;
+  margin-left: 40px;
+  background-color: #fff;
+  border-left: 2px solid #0759bc;
+  box-shadow: 4px 0px 14px -2px #0759bc;
+}
+
+.translate {
+  min-height: 600px;
+}
+
+.list table {
+  margin-left: 20px;
 }
 
 td {
   min-width: 70px;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.2em;
   padding-right: 10px;
 }
@@ -34,13 +44,55 @@ footer {
 }
 
 a {
-  color: #BAE032;
+  color: #0759bc;
 }
 
 h1 {
-  border-bottom: 1px solid #BAE032;
+  border-bottom: 1px solid #000;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.standout {
+  font-style: italic;
+  font-weight: 600;
 }
 
 button {
   display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.inputBox {
+  padding: 0;
+  margin-right: 5px;
+  width: 300px;
+  line-height: 2em;
+  font-size: 1.2em;
+}
+
+.button {
+  height: 1.6em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.6em;
+}
+
+.emailButton {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 }

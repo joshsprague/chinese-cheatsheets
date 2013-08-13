@@ -1,24 +1,30 @@
 <div class="list">
-  <h1>Chinese Cheatsheets</h1>
-  <h3>Enter English words to build a new list</h3>
-  <table>
-    {{#collection tag="tbody"}}
-        <tr><td class="keyword">{{title}}</td><td>{{translation}}</td></tr>
-    {{/collection}}
-  </table>
-  <form id="translated">
-    <input name="title">
-    <input type="submit" value="Translate">
-  </form>
-  
-  <form id="email">
-    <input name="address">
-    <input type="submit" value="Email this list">
-  </form>
-
+  <div class="translate">
+    <h1>Chinese Cheatsheets</h1>
+    <h3>Build a custom Chinese phrasebook in a <em>hurry</em>.</h3>
+    <h4>1. <span class="standout">Type English words</span> you want to translate.</h4>
+    <h4>2. You'll <span class="standout">get Chinese characters</span> back.</h4>
+    <h4>3. When you're done, <span class="standout">email the new list </span> to yourself</h4>
+    <form id="translated">
+      <input name="title" class="inputBox">
+      <input type="submit" value="Translate" class="button">
+    </form>
+    <table>
+      {{#collection tag="tbody"}}
+          <tr><td class="keyword">{{title}}</td><td>{{translation}}</td></tr>
+      {{/collection}}
+    </table>
+    
+    
+   
+  </div>
+  <footer>
+     <form id="email">
+      <input name="address">
+      <input type="submit" value="Email this list" class="emailButton">
+    </form>
+    API by <a href="http://developer.pearson.com/">Pearson</a></br>
+   This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+  </footer>
 </div>
 
-<footer>
-  API by <a href="http://developer.pearson.com/">Pearson</a> | Background image by <a href="http://www.flickr.com/photos/shizhao/4468692973/">Shizhou</a>.</br>
-  Creative Commons -- Attribution-ShareAlike
-</footer>
