@@ -16,6 +16,7 @@
         "js/collections/wordList/pairs.js",
         "js/views/wordList/email.js",
         "js/models/wordList/email.js"
+
       ],
       "styles": [
         "stylesheets/wordList.css"

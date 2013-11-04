@@ -1,6 +1,7 @@
 {
   "name": "cheatsheets",
   "version": "0.0.1-15",
+  "version": "0.0.1",
   "devDependencies": {
     "handlebars": "~1.0.0",
     "thorax": "~2.0.0",
@@ -41,6 +42,10 @@
   },
   "engines": {
     "node": ">=0.8.0"
+
   },
   "subdomain": "ChineseCheatsheets"
+
+  }
+
 }

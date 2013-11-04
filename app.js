@@ -4,6 +4,7 @@ module.exports = function(){
     this.app = this.express();
     this.http = require('http');
     this._ = require ('underscore');
+
     this.connect = require('connect');
     this.mysql = require('mysql');
     this.nodemailer = require('nodemailer');
@@ -19,18 +20,28 @@ module.exports = function(){
     database: "cheatsheets",
   });
 
-  //set up options handler
-  var optionsHandler = function (req, res, next) {
-    if ('OPTIONS' === req.method) {
-      res.send(200);
-    } else {
-      next();
-    }
+
+
+  var db = function(query, cb) {
+    console.log("Database queried.");
+    dbConnection.query(query, cb);
   };
 
   //set up express
   cheatsheets.app.configure(function () {
-    this.use(optionsHandler);
+
+    this.use(function (req, res, next) {
+      res.header('Access-Control-Allow-Origin', req.headers.origin);
+      res.header('Access-Control-Allow-Origin', 'GET,PUT,POST,DELETE,OPTIONS');
+      res.header('Access-Control-Allow-Origin', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+      if ('OPTIONS' === req.method) {
+        res.send(200);
+      } else {
+        next();
+      }
+    });
+
 
     this.use(cheatsheets.express.static(__dirname+'/public'));
     this.set('view engine', 'html');
@@ -39,6 +50,7 @@ module.exports = function(){
     this.use(cheatsheets.express.methodOverride());
 
   });
+
 
   //set up nodemailer
   var smtpTransport = nodemailer.createTransport("SMTP", {
@@ -75,6 +87,16 @@ module.exports = function(){
         console.log("Message sent");
       }
     });
+
+
+  //Route saved pairs to database
+  cheatsheets.app.post("/pairList", function(req, res) {
+
+    dbConnection.query("INSERT into pairs (search_word, translation) values ('" + req.body['search_word'] + "', '" + req.body['translation'] + "');", function(err, rows, fields){
+      if (err) throw err;
+      console.log("Pair saved to database");
+      });
+
 
     res.end();
   });

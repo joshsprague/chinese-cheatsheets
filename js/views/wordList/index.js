@@ -28,13 +28,13 @@ Application.View.extend({
               newPair.translation = body["results"][0]["senses"][0]["translation"];
               console.log(newPair.translation);
           }
-          
+
           self.collection.add({title: newPair.search_word, translation: newPair.translation});
-          
+
           newPair.save({search_word: newPair.search_word, translation: newPair.translation});
         }
     });
-      
+
       this.$('input[name="title"]').val('');
     },
 
@@ -53,6 +53,7 @@ Application.View.extend({
 
       email.save({address: attrs.address, emailBody: emailBody});
       this.$('input[name="address"]').val('Sent');
+
     }
   },
 
