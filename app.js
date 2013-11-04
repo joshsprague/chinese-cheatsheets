@@ -25,6 +25,7 @@ module.exports = function(){
   var db = function(query, cb) {
     console.log("Database queried.");
     dbConnection.query(query, cb);
+
   };
 
   //set up express
@@ -50,7 +51,6 @@ module.exports = function(){
     this.use(cheatsheets.express.methodOverride());
 
   });
-
 
   //set up nodemailer
   var smtpTransport = nodemailer.createTransport("SMTP", {
@@ -101,10 +101,29 @@ module.exports = function(){
     res.end();
   });
 
+  //Route email request
+  cheatsheets.app.get("/email", function(req, res) {
+    smtpTransport.sendMail({
+      from: "Cheatsheets <chinesecheatsheets@gmail.com>",
+      to: "User <joshjsprague@gmail.com",
+      subject: "Your cheatsheet",
+      text: "Words from your cheatsheet",
+    }, function(error, response) {
+      if(error) {
+        console.log(error);
+      } else {
+        console.log("Message sent");
+      }
+    });
+
+    res.end();
+  });
+
   //Return 404 if route not found
   cheatsheets.app.use(function(req, res, next){
     res.send(404, 'Sorry cant find that!');
   });
+
 
   //set up listening
   cheatsheets.app.listen(cheatsheets.app.get("port"));

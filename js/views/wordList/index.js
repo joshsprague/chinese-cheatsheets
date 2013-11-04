@@ -54,6 +54,7 @@ Application.View.extend({
       email.save({address: attrs.address, emailBody: emailBody});
       this.$('input[name="address"]').val('Sent');
 
+
     }
   },
 
