@@ -31,7 +31,7 @@ module.exports = function(){
   //set up express
   cheatsheets.app.configure(function () {
     this.use(optionsHandler);
-    
+
     this.use(cheatsheets.express.static(__dirname+'/public'));
     this.set('view engine', 'html');
     this.use(cheatsheets.express.bodyParser());
@@ -51,12 +51,12 @@ module.exports = function(){
 
   //Route saved pairs to database
   cheatsheets.app.post("/pairList", function(req, res) {
-    
+
     dbConnection.query("INSERT into pairs (search_word, translation) values ('" + req.body['search_word'] + "', '" + req.body['translation'] + "');", function(err, rows, fields){
       if (err) throw err;
       console.log("Pair saved to database");
     });
-    
+
     res.end();
   });
 
@@ -64,7 +64,7 @@ module.exports = function(){
   cheatsheets.app.post("/email", function(req, res) {
 
     smtpTransport.sendMail({
-      from: "Cheatsheets <chinesecheatsheets@gmail.com>", 
+      from: "Cheatsheets <chinesecheatsheets@gmail.com>",
       to: "User <" + req.body['address'] + ">",
       subject: "Your cheatsheet",
       html: "Your cheatsheet: </br></br>" + req.body['emailBody'] + " ",

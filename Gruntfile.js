@@ -3,7 +3,7 @@ module.exports = function(grunt) {
       publicDir = './public',
       lumbarFile = './lumbar.json',
       hostname = require('os').hostname();
-  
+
   grunt.file.mkdir(publicDir);
 
   grunt.initConfig({
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  
+
   grunt.registerTask("init-express", function () {
       var cheatsheets = require("./app.js")();
     });
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
     var open = require('open');
     open('http://' + hostname + ':' + port);
   });
-  
+
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('thorax-inspector');
   grunt.loadNpmTasks('lumbar');
